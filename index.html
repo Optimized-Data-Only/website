@@ -7,23 +7,90 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Name Echo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        #container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        label {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #echoContainer {
+            margin-top: 20px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>Enter Your Name</h1>
-    <form id="nameForm">
-        <label for="nameInput">Name:</label>
-        <input type="text" id="nameInput" name="nameInput">
-        <button type="submit">Submit</button>
-    </form>
-    <div id="echoContainer">
-        <!-- Display echoed name if it exists -->
-        <script>
-            var urlParams = new URLSearchParams(window.location.search);
-            var echoedName = urlParams.get('name');
-            if (echoedName) {
-                document.getElementById('echoContainer').innerHTML = "<p>Your name is: " + echoedName + "</p>";
-            }
-        </script>
+    <div id="container">
+        <h1>Enter Your Name</h1>
+        <form id="nameForm">
+            <label for="nameInput">Name:</label>
+            <input type="text" id="nameInput" name="nameInput">
+            <button type="submit">Submit</button>
+        </form>
+        <div id="echoContainer">
+            <!-- Display echoed name if it exists -->
+            <script>
+                var urlParams = new URLSearchParams(window.location.search);
+                var echoedName = urlParams.get('name');
+                if (echoedName) {
+                    document.getElementById('echoContainer').innerHTML = "<p>Your name is: " + echoedName + "</p>";
+                }
+            </script>
+        </div>
     </div>
 
     <script>
