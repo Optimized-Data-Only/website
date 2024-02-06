@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Username Submission</title>
+    <title>User Name Echo</title>
 </head>
 <body>
-    <h1>Enter Username</h1>
-    <form action="#" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <br>
+    <h1>Enter Your Name</h1>
+    <form id="nameForm">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" name="nameInput">
         <button type="submit">Submit</button>
     </form>
+    <div id="echoContainer"></div>
+
+    <script>
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the form from submitting and reloading the page
+            
+            // Get the input value
+            var name = document.getElementById("nameInput").value;
+            
+            // Display the echoed name
+            var echoContainer = document.getElementById("echoContainer");
+            echoContainer.innerHTML = "<p>Your name is: " + name + "</p>";
+        });
+    </script>
 </body>
 </html>
+
